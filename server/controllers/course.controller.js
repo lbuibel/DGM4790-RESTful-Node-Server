@@ -62,3 +62,49 @@ export const postDeleteCourse = (req, res, next) => {
     })
 }
 
+// UPDATING EXHISTING COURSE
+export const postEditCourse = (req, res, next) => {
+    const courseId = req.params.courseId
+
+    const updateName = req.body.name
+    const updateType = req.body.type
+    const updateMiles = req.body.miles
+    const updateStartPoint = req.body.startPoint
+    const updateEndPoint = req.body.endPoint
+    const updateStartingElevation = req.body.startingElevation
+    const updateFinalElevation = req.body.finalElevation
+    const updateMaxGradient = req.body.maxGradient
+    const updateAverageGradient = req.body.averageGradient
+    const updateGoogleRoute = req.body.googleRoute
+
+    Course.findById(courseId)
+    .then(course => {
+        course.name =  updateName
+        course.type = updateType
+        course.miles = updateMiles
+        course.startPoint = updateStartPoint
+        course.endPoint = updateEndPoint
+        course.startingElevation = updateStartingElevation
+        course.finalElevation = updateFinalElevation
+        course.maxGradient = updateMaxGradient
+        course.averageGradient = updateAverageGradient
+        course.googleRoute = updateGoogleRoute
+        return course.save()
+    })
+    .then(result => {
+        console.log('Course updated')
+        res.send('Course Updated')
+    })
+    .catch(err => {console.log(err)})
+}
+
+// SEARCHING A SPECIFIC COURSE
+export const getCourse = (req, res, next) => {
+    const courseId = req.params.courseId
+    Course.findById(courseId)
+    .then(course => {
+        res.json(course)
+        console.log('Course found')
+    })
+    .catch(err => {console.log(err)})
+}
