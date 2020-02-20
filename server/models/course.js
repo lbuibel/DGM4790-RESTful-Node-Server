@@ -22,19 +22,39 @@ import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
 
-const productSchema = new Schema({
-    title: {
+const courseSchema = new Schema({
+    name: {
       type: String,
       required: true
     },
-    price: {
+    type: {
+      type: String,
+      required: true
+    },
+    miles: {
       type: Number,
       required: true
     },
-    description: {
+    startPoint: {
+      type: String,
+      required: true,
+    },
+    endPoint: {
       type: String,
       required: true
-    }
+    },
+    startingElevation: {
+      type: Number,
+      require: true
+    },
+    finalElevation: {
+      type: Number,
+      required: true
+    },
+    maxGradient: {
+      type: Number,
+      required: false
+    },
   });
   
-  module.exports = mongoose.model('Album', productSchema);
+  module.exports = mongoose.model('Course', courseSchema);
