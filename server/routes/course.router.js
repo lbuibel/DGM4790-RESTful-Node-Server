@@ -1,9 +1,12 @@
 import { Router } from 'express'
-import { postAddCourse, getAllCourses } from '../controllers/course.controller'
+import { postAddCourse, getAllCourses, postDeleteCourse } from '../controllers/course.controller'
 
 export const courseRouter = Router()
 
 // /api/add-product
 courseRouter.post('/add-course', postAddCourse)
 
-courseRouter.get('/getAllAlbums', getAllCourses)
+courseRouter.get('/getAllCourses', getAllCourses)
+
+courseRouter.post('/delete-course/:courseId', postDeleteCourse)
+

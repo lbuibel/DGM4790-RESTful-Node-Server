@@ -11,6 +11,8 @@ export const postAddCourse = (req, res, next) => {
     const startingElevation = req.body.startingElevation
     const finalElevation = req.body.finalElevation
     const maxGradient = req.body.maxGradient
+    const averageGradient = (((finalElevation - startingElevation) / (miles * 5280)) * 100).toFixed(1)
+    const googleRoute = `https://www.google.com/maps/dir/${startPoint}/${endPoint}/`
     const course = new Course({
       name: name,
       type: type,
@@ -19,7 +21,9 @@ export const postAddCourse = (req, res, next) => {
       endPoint: endPoint,
       startingElevation: startingElevation,
       finalElevation: finalElevation,
-      maxGradient: maxGradient
+      maxGradient: maxGradient,
+      averageGradient: averageGradient,
+      googleRoute: googleRoute
     });
     course
     .save()
@@ -43,4 +47,18 @@ export const getAllCourses = (req, res, next) => {
         .catch(err => {
             console.log(err)
         })
+}
+
+// DELETE COURSE
+export const postDeleteCourse = (req, res, next) => {
+    const courseId = req.params.courseId
+    Course.findByIdAndRemove(courseId)
+    .then(()=> {
+        console.log('Course deleted')
+        // res.redirect('/getAllCourses')
+        res.send('Course deleted')
+    })
+    .catch(err => {
+        console.log(err)
+    })
 }

@@ -55,6 +55,14 @@ const courseSchema = new Schema({
       type: Number,
       required: false
     },
+    averageGradient: {
+      type: Number,
+      required: false
+    },
+    googleRoute: {
+      type: String,
+      required: false
+    }
   });
   
   module.exports = mongoose.model('Course', courseSchema);
