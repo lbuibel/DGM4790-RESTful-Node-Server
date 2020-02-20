@@ -49,6 +49,19 @@ export const getAllCourses = (req, res, next) => {
         })
 }
 
+// RETURNING COURSES LESS THAN SELECTED AVERAGE GRADIENT
+export const getMaxAverageGrade = (req, res, next) => {
+    const maxGrade = req.params.maxGrade
+    Course.find()
+        .then(courses => {
+            res.json(courses.filter(course => course.averageGradient <= maxGrade))
+            console.log(courses)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
 // DELETE COURSE
 export const postDeleteCourse = (req, res, next) => {
     const courseId = req.params.courseId
