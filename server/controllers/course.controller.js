@@ -55,10 +55,10 @@ export const postDeleteCourse = (req, res, next) => {
     Course.findByIdAndRemove(courseId)
     .then(()=> {
         console.log('Course deleted')
-        // res.redirect('/getAllCourses')
-        res.send('Course deleted')
+        res.redirect('/course/getAllCourses')
     })
     .catch(err => {
         console.log(err)
     })
 }
+
