@@ -12,7 +12,7 @@ export const postAddCourse = (req, res, next) => {
     const finalElevation = req.body.finalElevation
     const maxGradient = req.body.maxGradient
     const averageGradient = (((finalElevation - startingElevation) / (miles * 5280)) * 100).toFixed(1)
-    const googleRoute = `https://www.google.com/maps/dir/${startPoint}/${endPoint}/`
+    const googleRoute = `https://www.google.com/maps/dir/?api=1&origin=${startPoint}&destination=${endPoint}&travelmode=bicycling`
     const course = new Course({
       name: name,
       type: type,

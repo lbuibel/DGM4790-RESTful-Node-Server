@@ -8,7 +8,6 @@ const app = express()
 
 app.use(bodyParser.urlencoded({extended: false}))
 
-// GET /feed/posts
 app.use('/course', courseRouter)
 
 const port = 5000
@@ -21,3 +20,4 @@ mongoose.connect(dbUrl, {useUnifiedTopology: true,})
 .catch(err => {
     console.log(err)
 })
+

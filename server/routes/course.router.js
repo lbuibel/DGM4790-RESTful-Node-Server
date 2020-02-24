@@ -3,7 +3,6 @@ import { postAddCourse, getAllCourses, postDeleteCourse, postEditCourse, getCour
 
 export const courseRouter = Router()
 
-// /api/add-product
 courseRouter.get('/getAllCourses', getAllCourses)
 
 courseRouter.get('/get-course/:courseId', getCourse)
