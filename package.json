@@ -4,8 +4,8 @@
   "description": "DGM-4790 Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -r esm server/index.js"
+    "start": "nodemon -r esm server/index.js",
+    "serve": "nodemon -r esm index.js"
   },
   "author": "Logan Uibel",
   "license": "ISC",
