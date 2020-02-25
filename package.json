@@ -4,8 +4,8 @@
   "description": "DGM-4790 Project",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r esm server/index.js",
-    "serve": "-r esm server/index.js"
+    "start": "node -r esm server/index.js",
+    "serve": "nodemon -r esm server/index.js"
   },
   "author": "Logan Uibel",
   "license": "ISC",
