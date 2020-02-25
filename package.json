@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon -r esm server/index.js",
-    "serve": "nodemon -r esm index.js"
+    "serve": "-r esm server/index.js"
   },
   "author": "Logan Uibel",
   "license": "ISC",
