@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 app.use('/course', courseRouter)
 
-const port = 5000
+const port = process.env.PORT || 5000
 const dbUrl = "mongodb+srv://dbUser:test1234@dark-web-kiqfi.mongodb.net/test"
 
 mongoose.connect(dbUrl, {useUnifiedTopology: true,})
