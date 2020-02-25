@@ -43,7 +43,6 @@ to run this locally, clone the repo and run 'npm install', to run the app use np
 
 POST'ing a new route consist of adding this info:
 
-`
 name: //String (required)<br>
 type: //String (required - pavement gravel etc)<br>
 miles: //Number (required)<br>
@@ -56,7 +55,6 @@ maxGradient: //Number (not required)<br>
 averageGradient: //number (not required - calculated with user entered elevations)
 googlerRoute: //String (not required - generated with starting and ending point entered by user)
 
-`
 
 ### Delete
 An _id is requried to remove a route from the database. _id's can be found [here](https://bike-routes-api.herokuapp.com/course/getAllCourses)
