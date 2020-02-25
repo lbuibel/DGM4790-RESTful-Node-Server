@@ -44,14 +44,14 @@ to run this locally, clone the repo and run 'npm install', to run the app use np
 POST'ing a new route consist of adding this info:
 
 `
-name: //String (required)
-type: //String (required - pavement gravel etc)
-miles: //Number (required)
-startPoint: //String (required - coordinates)
-endPoint: //String (required - coordinates)
-startingElevation: //Number (required)
-finalElevation: //Number (required)
-maxGradient: //Number (not required)
+name: //String (required)<br>
+type: //String (required - pavement gravel etc)<br>
+miles: //Number (required)<br>
+startPoint: //String (required - coordinates)<br>
+endPoint: //String (required - coordinates)<br>
+startingElevation: //Number (required)<br>
+finalElevation: //Number (required)<br>
+maxGradient: //Number (not required)<br>
 
 averageGradient: //number (not required - calculated with user entered elevations)
 googlerRoute: //String (not required - generated with starting and ending point entered by user)
