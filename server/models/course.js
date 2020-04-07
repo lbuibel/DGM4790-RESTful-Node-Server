@@ -42,6 +42,10 @@ const courseSchema = new Schema({
     googleRoute: {
       type: String,
       required: false
+    },
+    iframeData: {
+      type: String,
+      required: true,
     }
   });
   
