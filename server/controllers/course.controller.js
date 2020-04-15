@@ -1,18 +1,18 @@
 const Course = require('../models/course')
 
-
 // ADDING INDIVIDUAL COURSE
 export const postAddCourse = (req, res, next) => {
     const name = req.body.name
     const type = req.body.type
     const miles = req.body.miles
-    const startPoint = req.body.startPoint
-    const endPoint = req.body.endPoint
+    // const startPoint = req.body.startPoint
+    // const endPoint = req.body.endPoint
     const startingElevation = req.body.startingElevation
     const finalElevation = req.body.finalElevation
-    const maxGradient = req.body.maxGradient
-    const averageGradient = (((finalElevation - startingElevation) / (miles * 5280)) * 100).toFixed(1)
-    const googleRoute = `https://www.google.com/maps/dir/?api=1&origin=${startPoint}&destination=${endPoint}&travelmode=bicycling`
+    // const maxGradient = req.body.maxGradient
+    // const averageGradient = (((finalElevation - startingElevation) / (miles * 5280)) * 100).toFixed(1)
+    // const googleRoute = `https://www.google.com/maps/dir/?api=1&origin=${startPoint}&destination=${endPoint}&travelmode=bicycling`
+    const iframeData = req.body.iframeData
     const course = new Course({
       name: name,
       type: type,
@@ -21,9 +21,10 @@ export const postAddCourse = (req, res, next) => {
       endPoint: endPoint,
       startingElevation: startingElevation,
       finalElevation: finalElevation,
-      maxGradient: maxGradient,
-      averageGradient: averageGradient,
-      googleRoute: googleRoute
+    //   maxGradient: maxGradient,
+    //   averageGradient: averageGradient,
+    //   googleRoute: googleRoute,
+      iframeData: iframeData
     });
     course
     .save()

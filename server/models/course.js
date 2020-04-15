@@ -15,14 +15,14 @@ const courseSchema = new Schema({
       type: Number,
       required: true
     },
-    startPoint: {
-      type: String,
-      required: true,
-    },
-    endPoint: {
-      type: String,
-      required: true
-    },
+    // startPoint: {
+    //   type: String,
+    //   required: true,
+    // },
+    // endPoint: {
+    //   type: String,
+    //   required: true
+    // },
     startingElevation: {
       type: Number,
       require: true
@@ -31,18 +31,18 @@ const courseSchema = new Schema({
       type: Number,
       required: true
     },
-    maxGradient: {
-      type: Number,
-      required: false
-    },
-    averageGradient: {
-      type: Number,
-      required: false
-    },
-    googleRoute: {
-      type: String,
-      required: false
-    },
+    // maxGradient: {
+    //   type: Number,
+    //   required: false
+    // },
+    // averageGradient: {
+    //   type: Number,
+    //   required: false
+    // },
+    // googleRoute: {
+    //   type: String,
+    //   required: false
+    // },
     iframeData: {
       type: String,
       required: true,
