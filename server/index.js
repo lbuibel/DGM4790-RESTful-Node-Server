@@ -7,12 +7,9 @@ import { courseRouter } from './routes/course.router'
 
 const app = express()
 
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(cors());
 
-app.use(cors({
-    origin: ['http://localhost:8080'],
-    credentials: true
-}));
+app.use(bodyParser.urlencoded({extended: false}))
 
 app.use('/course', courseRouter)
 
