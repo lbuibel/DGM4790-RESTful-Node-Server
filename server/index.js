@@ -10,7 +10,7 @@ const app = express()
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.use(cors({
-    origin: ['http://localhost:8080/#/add-route-rest'],
+    origin: ['http://localhost:8080'],
     credentials: true
 }));
 
