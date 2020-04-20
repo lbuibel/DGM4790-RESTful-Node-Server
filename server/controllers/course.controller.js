@@ -5,25 +5,17 @@ export const postAddCourse = (req, res, next) => {
     const name = req.body.name
     const type = req.body.type
     const miles = req.body.miles
-    // const startPoint = req.body.startPoint
-    // const endPoint = req.body.endPoint
     const startingElevation = req.body.startingElevation
     const finalElevation = req.body.finalElevation
-    // const maxGradient = req.body.maxGradient
-    // const averageGradient = (((finalElevation - startingElevation) / (miles * 5280)) * 100).toFixed(1)
-    // const googleRoute = `https://www.google.com/maps/dir/?api=1&origin=${startPoint}&destination=${endPoint}&travelmode=bicycling`
+    const averageGradient = (((finalElevation - startingElevation) / (miles * 5280)) * 100).toFixed(1)
     const iframeData = req.body.iframeData
     const course = new Course({
       name: name,
       type: type,
       miles: miles,
-    //   startPoint: startPoint,
-    //   endPoint: endPoint,
       startingElevation: startingElevation,
       finalElevation: finalElevation,
-    //   maxGradient: maxGradient,
-    //   averageGradient: averageGradient,
-    //   googleRoute: googleRoute,
+      averageGradient: averageGradient,
       iframeData: iframeData
     });
     course
@@ -56,7 +48,20 @@ export const getMaxAverageGrade = (req, res, next) => {
     Course.find()
         .then(courses => {
             res.json(courses.filter(course => course.averageGradient <= maxGrade))
-            console.log(courses)
+            console.log('courses')
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
+// RETURNING COURSES LESS THAN SELECTED DISTANCE
+export const getMaxMiles = (req, res, next) => {
+    const maxMiles = req.params.maxMiles
+    Course.find()
+        .then(courses => {
+            res.json(courses.filter(course => course.miles <= maxMiles))
+            console.log('courses')
         })
         .catch(err => {
             console.log(err)
@@ -69,7 +74,7 @@ export const postDeleteCourse = (req, res, next) => {
     Course.findByIdAndRemove(courseId)
     .then(()=> {
         console.log('Course deleted')
-        res.redirect('/course/getAllCourses')
+        res.send('Course Deleted')
     })
     .catch(err => {
         console.log(err)
@@ -83,26 +88,17 @@ export const postEditCourse = (req, res, next) => {
     const updateName = req.body.name
     const updateType = req.body.type
     const updateMiles = req.body.miles
-    const updateStartPoint = req.body.startPoint
-    const updateEndPoint = req.body.endPoint
     const updateStartingElevation = req.body.startingElevation
     const updateFinalElevation = req.body.finalElevation
-    const updateMaxGradient = req.body.maxGradient
-    const updateAverageGradient = req.body.averageGradient
-    const updateGoogleRoute = req.body.googleRoute
+    const updateiframeData = req.body.iframeData
 
     Course.findById(courseId)
     .then(course => {
         course.name =  updateName
         course.type = updateType
         course.miles = updateMiles
-        course.startPoint = updateStartPoint
-        course.endPoint = updateEndPoint
         course.startingElevation = updateStartingElevation
         course.finalElevation = updateFinalElevation
-        course.maxGradient = updateMaxGradient
-        course.averageGradient = updateAverageGradient
-        course.googleRoute = updateGoogleRoute
         return course.save()
     })
     .then(result => {
@@ -112,7 +108,7 @@ export const postEditCourse = (req, res, next) => {
     .catch(err => {console.log(err)})
 }
 
-// SEARCHING A SPECIFIC COURSE
+// SEARCHING A SPECIFIC COURSE BY ID
 export const getCourse = (req, res, next) => {
     const courseId = req.params.courseId
     Course.findById(courseId)
