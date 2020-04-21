@@ -46,8 +46,6 @@ POST'ing a new route consist of adding this info:
 name: //String (required)<br>
 type: //String (required - pavement gravel etc)<br>
 miles: //Number (required)<br>
-startPoint: //String (required - coordinates)<br>
-endPoint: //String (required - coordinates)<br>
 startingElevation: //Number (required)<br>
 finalElevation: //Number (required)<br>
 maxGradient: //Number (not required)<br>
