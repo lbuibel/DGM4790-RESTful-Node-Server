@@ -5,6 +5,8 @@ import cors from 'cors'
 import * as dotenv from 'dotenv'
 import { courseRouter } from './routes/course.router'
 
+dotenv.config()
+
 const app = express()
 
 app.use(cors());
@@ -29,3 +31,6 @@ mongoose.connect(dbUrl, {useUnifiedTopology: true,})
     console.log(err)
 })
 
+
+
+  
