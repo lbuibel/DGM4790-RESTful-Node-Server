@@ -2,7 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
-
+import * as dotenv from 'dotenv'
 import { courseRouter } from './routes/course.router'
 
 const app = express()
@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use('/course', courseRouter)
 
 const PORT = process.env.PORT || 5000
-const dbUrl = "mongodb+srv://dbUser:test1234@dark-web-kiqfi.mongodb.net/test"
+const dbUrl = `${process.env.DB_CONNECTION_STRING}`
 
 mongoose.connect(dbUrl, {useUnifiedTopology: true,})
 .then(result => {
